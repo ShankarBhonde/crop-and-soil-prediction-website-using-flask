@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Agriculture Prediction System</h1>
+
+<p class="intro-text">
+This system helps farmers predict the best crop and analyze soil health
+using machine learning.
+</p>
+
+
+<div class="slider">
+  <div class="slides">
+    <img src="{{ url_for('static', filename='images/image-1.jpg') }}" alt="Image 1">
+
+    <img src="{{ url_for('static', filename='images/image-6.jpg') }}" alt="Image 2">
+
+    <img src="{{ url_for('static', filename='images/image-3.jpg') }}" alt="Image 3">
+
+    <img src="{{ url_for('static', filename='images/image-4.jpg') }}" alt="Image 4">
+
+    <img src="{{ url_for('static', filename='images/image-5.jpg') }}" alt="Image 5">
+
+    <img src="{{ url_for('static', filename='images/image-2.jpg') }}" alt="Image 6">
+
+    
+  </div>
+</div>
+
+
+<div class="card-container">
+
+    <div class="info-card">
+        <a href="{{ url_for('crop') }}">
+            <img src="{{ url_for('static', filename='images/crop_img.jpg') }}">
+            <h3>🌾 Crop Prediction</h3>
+            <p>
+                Predicts the most suitable crop based on soil nutrients,
+                temperature, humidity, pH, and rainfall using ML models.
+            </p>
+        </a>
+    </div>
+
+    <div class="info-card">
+        <a href="{{ url_for('soil') }}">
+            <img src="{{ url_for('static', filename='images/soil.jpg') }}">
+            <h3>🧪 Soil Prediction</h3>
+            <p>
+                Analyzes soil health using Nitrogen, Phosphorus, Potassium,
+                and pH values to improve agricultural productivity.
+            </p>
+        </a>
+    </div>
+
+</div>
+
+<div class="info-box">
+    <h2>🌾 What is Crop Prediction?</h2>
+
+    <p class="center-text">
+        Crop prediction is the process of recommending the most suitable crop to grow based on:
+    </p>
+
+    <ul class="list">
+        <li>Soil nutrients</li>
+        <li>Soil pH</li>
+        <li>Weather conditions</li>
+    </ul>
+
+    <p class="center-text">
+        It helps farmers choose the right crop to increase yield and reduce loss.
+    </p>
+
+    <h3>📊 Input Parameters</h3>
+
+    <ul class="list">
+        <li><strong>Nitrogen (N)</strong> – helps leaf growth</li>
+        <li><strong>Phosphorus (P)</strong> – supports root & flower development</li>
+        <li><strong>Potassium (K)</strong> – improves disease resistance</li>
+        <li>Temperature - Affects germination and growth rate</li>
+        <li>Humidity - Controls plant water balance</li>
+        <li>Rainfall - Provides soil moisture</li>
+        <li>pH Level-Regulates nutrient absorption</li>
+    </ul>
+</div>
+
+
+<div class="info-box">
+    <h2>🌱 What is Soil Prediction?</h2>
+
+    <p class="center-text">
+        Soil prediction identifies the type or quality of soil based on nutrient composition.
+    </p>
+
+    <p class="center-text">
+        It helps in understanding soil fertility and deciding suitable crops or fertilizers.
+    </p>
+
+    <h3>📊 Input Parameters</h3>
+
+    <ul class="list">
+        <li><strong>Nitrogen (N)</strong></li>
+        <li><strong>Phosphorus (P)</strong></li>
+        <li><strong>Potassium (K)</strong></li>
+        <li><strong>pH Level</strong></li>
+    </ul>
+</div>
+<!-- Feedback section INCLUDED -->
+
+<!-- Flash Messages 
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, msg in messages %}
+      <div class="result {{ category }}">
+         <h1> {{ msg }}</h1>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+
+<div class="container1">
+    <h2>User Feedback</h2>
+
+    
+   
+
+    <form action="user_feedback" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+
+        <input type="text" name="mo_no" placeholder="Your mo_no" required>
+
+        <textarea name="message" placeholder="Your Feedback" required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+</div>
+ 
+-->
+
+
+{% include "feedback.html" %}
+
+
+<footer class="footer">
+    <p>© 2025 Agriculture Prediction System</p>
+    <p>Developed using Machine Learning & Flask</p>
+</footer>
+
+{% endblock %}
